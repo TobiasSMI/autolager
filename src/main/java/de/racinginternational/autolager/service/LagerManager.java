@@ -2,6 +2,7 @@ package de.racinginternational.autolager.service;
 
 import java.util.ArrayList;
 
+import de.racinginternational.autolager.auto.Auto;
 import de.racinginternational.autolager.auto.BMW;
 import de.racinginternational.autolager.auto.Ferrari;
 import de.racinginternational.autolager.auto.Porsche;
@@ -14,8 +15,8 @@ public class LagerManager {
 	private ArrayList<Porsche> porscheListe = new ArrayList<Porsche>();	
 	private ArrayList<Volkswagen> volkswagenListe = new ArrayList<Volkswagen>();	
 
-	public void add(BMW bmw) {
-		bmwListe.add(bmw);
+	public void add(BMW auto) {
+		bmwListe.add(auto);
 	}	
 	
 	public void add(Ferrari ferrari) {

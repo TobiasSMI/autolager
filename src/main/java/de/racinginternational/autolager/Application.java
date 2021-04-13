@@ -1,5 +1,6 @@
 package de.racinginternational.autolager;
 
+import de.racinginternational.autolager.auto.Auto;
 import de.racinginternational.autolager.auto.BMW;
 import de.racinginternational.autolager.auto.Ferrari;
 import de.racinginternational.autolager.auto.Porsche;
@@ -10,21 +11,21 @@ public class Application {
 
 	public static void main(String[] args) {
 
-		BMW bmwHeinrichs = new BMW();
-		BMW bmwIsik = new BMW();
-		BMW bmwKurdas = new BMW();
+		Auto bmwHeinrichs = new BMW();
+		Auto bmwIsik = new BMW();
+		Auto bmwKurdas = new BMW();
 
-		Ferrari ferrariHeinrichs = new Ferrari();
-		Ferrari ferrariIsik = new Ferrari();
-		Ferrari ferrariKurdas = new Ferrari();
+		Auto ferrariHeinrichs = new Ferrari();
+		Auto ferrariIsik = new Ferrari();
+		Auto ferrariKurdas = new Ferrari();
 
-		Porsche porscheHeinrichs = new Porsche();
-		Porsche porscheIsik = new Porsche();
-		Porsche porscheKurdas = new Porsche();
+		Auto porscheHeinrichs = new Porsche();
+		Auto porscheIsik = new Porsche();
+		Auto porscheKurdas = new Porsche();
 
-		Volkswagen vwHeinrichs = new Volkswagen();
-		Volkswagen vwIsik = new Volkswagen();
-		Volkswagen vwKurdas = new Volkswagen();
+		Auto vwHeinrichs = new Volkswagen();
+		Auto vwIsik = new Volkswagen();
+		Auto vwKurdas = new Volkswagen();
 		
 		LagerManager lagerManager = new LagerManager();
 		
@@ -45,6 +46,9 @@ public class Application {
 		lagerManager.add(vwIsik);
 		lagerManager.add(vwKurdas);		
 		
+		System.out.println();
+		
+		System.out.println("*******");
 		lagerManager.testFahren();		
 
 	}
