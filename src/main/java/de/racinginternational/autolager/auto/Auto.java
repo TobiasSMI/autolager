@@ -9,7 +9,7 @@ public abstract class Auto {
 		this.preis = preis;
 		this.color = color;
 		this.typ = typ;
-	}
+	}	
 	
 	public int getPreis() {
 		return preis;
