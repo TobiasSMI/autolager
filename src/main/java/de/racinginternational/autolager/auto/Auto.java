@@ -1,5 +1,6 @@
 package de.racinginternational.autolager.auto;
 
+import de.racinginternational.autolager.exception.PreisException;
 import de.racinginternational.autolager.util.AutoType;
 import de.racinginternational.autolager.util.Color;
 
@@ -14,7 +15,7 @@ public abstract class Auto {
 		if (!(preis < 0 || preis > 1_000_000)) {
 			this.preis = preis;
 		} else {
-			throw new Exception(); //näher ausführen
+			throw new PreisException(String.valueOf(preis)); //näher ausführen
 		}
 		this.color = color;
 		this.typ = typ;		
