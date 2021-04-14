@@ -1,14 +1,23 @@
 package de.racinginternational.autolager.auto;
 
+import de.racinginternational.autolager.util.AutoType;
+import de.racinginternational.autolager.util.Color;
+
 public abstract class Auto {
 	protected int preis = 0;
-	protected String color = "";	
-	protected String typ = "";		
+		
+	protected AutoType typ;
+	
+	protected Color color;
 
-	public Auto(int preis, String color, String typ) {		
-		this.preis = preis;
+	public Auto(int preis, Color color, AutoType typ) throws Exception {		
+		if (!(preis < 0 || preis > 1_000_000)) {
+			this.preis = preis;
+		} else {
+			throw new Exception(); //näher ausführen
+		}
 		this.color = color;
-		this.typ = typ;
+		this.typ = typ;		
 	}	
 	
 	public int getPreis() {
@@ -19,19 +28,19 @@ public abstract class Auto {
 		this.preis = preis;
 	}
 	
-	public String getColor() {
+	public Enum<Color> getColor() {
 		return color;
 	}
 	
-	public void setColor(String color) {
+	public void setColor(Color color) {
 		this.color = color;
 	}
 	
-	public String getTyp() {
+	public AutoType getTyp() {
 		return typ;
 	}
 	
-	public void setTyp(String typ) {
+	public void setTyp(AutoType typ) {
 		this.typ = typ;
 	}
 	
