@@ -6,51 +6,47 @@ import de.racinginternational.autolager.auto.Ferrari;
 import de.racinginternational.autolager.auto.Porsche;
 import de.racinginternational.autolager.auto.Volkswagen;
 import de.racinginternational.autolager.service.LagerManager;
+import de.racinginternational.autolager.util.AutoType;
+import de.racinginternational.autolager.util.Color;
 
 public class Application {
 
-	public static void main(String[] args) {
-
-		Auto bmwHeinrichs = new BMW();
-		Auto bmwIsik = new BMW();
-		Auto bmwKurdas = new BMW();
-
-		Auto ferrariHeinrichs = new Ferrari();
-		Auto ferrariIsik = new Ferrari();
-		Auto ferrariKurdas = new Ferrari();
-
-		Auto porscheHeinrichs = new Porsche();
-		Auto porscheIsik = new Porsche();
-		Auto porscheKurdas = new Porsche();
-
-		Auto vwHeinrichs = new Volkswagen();
-		Auto vwIsik = new Volkswagen();
-		Auto vwKurdas = new Volkswagen();
+	public static void main(String[] args) throws Exception {
+		Application run = new Application();		
+		System.out.println("Programm Start");
 		
-		LagerManager lagerManager = new LagerManager();
+		try {
+			run.mainApplication();
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			System.out.println("Programm beendet");
+		}
 		
-		// BMW
+	}
+	public void mainApplication() throws Exception {
+		Auto bmwHeinrichs = new BMW(30_000, Color.GREEN, AutoType.KOMBI);
+		Auto ferrariKurdas = new Ferrari(500_000, Color.BLACK, AutoType.CABRIO);
+		Auto porscheKurdas = new Porsche(50_000, Color.SILVER, AutoType.SUV);
+		Auto vwKurdas = new Volkswagen(20_000, Color.SILVER, AutoType.KOMPAKTWAGEN);
+		
+		LagerManager lagerManager = new LagerManager();						
+		
 		lagerManager.add(bmwHeinrichs);
-		lagerManager.add(bmwIsik);
-		lagerManager.add(bmwKurdas);
-		// Ferrari
-		lagerManager.add(ferrariHeinrichs);
-		lagerManager.add(ferrariIsik);
 		lagerManager.add(ferrariKurdas);
-		// Porsche
-		lagerManager.add(porscheHeinrichs);
-		lagerManager.add(porscheIsik);
-		lagerManager.add(porscheKurdas);		
-		// Volkswagen
-		lagerManager.add(vwHeinrichs);
-		lagerManager.add(vwIsik);
-		lagerManager.add(vwKurdas);		
+		lagerManager.add(porscheKurdas);
+		lagerManager.add(vwKurdas); 		
 		
-		System.out.println();
+		lagerManager.testFahren();	
 		
-		System.out.println("*******");
-		lagerManager.testFahren();		
-
+		// Wie viele Autos sind im Lager?
+		System.out.println(lagerManager.getAutoLagerNummer());
+		
+		// Entferne Ferrari Kurdas
+		lagerManager.remove(ferrariKurdas);
+		
+		// Wie viele Autos sind im Lager?
+		System.out.println(lagerManager.getAutoLagerNummer());			
 	}
 
 }
