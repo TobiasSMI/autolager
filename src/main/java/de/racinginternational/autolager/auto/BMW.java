@@ -1,12 +1,10 @@
 package de.racinginternational.autolager.auto;
 
-import de.racinginternational.autolager.util.AutoType;
-import de.racinginternational.autolager.util.Color;
-
 public class BMW extends Auto {
-	private static Color[] colorArray = new Color[] {Color.BLACK, Color.SILVER}; 
+	
+	private static AutoColor[] colorArray = new AutoColor[] {AutoColor.BLACK, AutoColor.SILVER}; 
 
-	public BMW(int preis, Color color, AutoType typ) throws Exception  {		
+	public BMW(int preis, AutoColor color, AutoType typ) throws Exception  {		
 		super(preis, color, typ, colorArray);
 	}
 

@@ -1,4 +1,4 @@
-package de.racinginternational.autolager.util;
+package de.racinginternational.autolager.auto;
 
 public enum AutoType {
 	CABRIO,
