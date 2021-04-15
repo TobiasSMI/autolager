@@ -11,29 +11,35 @@ public abstract class Auto {
 	private AutoColor color;
 	private AutoColor[] validColors;	
 
-	public Auto(int preis, AutoColor color, AutoType typ, AutoColor[] validColors) throws Exception {		
-		// TODO in Methode auslagern
-		if (!(preis < 0 || preis > 1_000_000)) {
-			this.preis = preis;
-		} else {
-			throw new PreisException(String.valueOf(preis)); //TODO näher ausführen
-		}
+	public Auto(int preis, AutoColor color, AutoType typ, AutoColor[] validColors) throws Exception {	
+		validatePrice(preis);		
+		validateColor(color, validColors);
 		
-		this.setValidColors(validColors); 
-				
-		// TODO in Methode auslagern
-		for (AutoColor entry : validColors) { // ValidColors = {}  color = blau
-			if (entry == color) {	// nimm den gültigen Farbwert | 			
-				this.color = color;
+		this.preis = preis;
+		this.color = color;			
+		this.typ = typ;	
+		this.validColors = validColors;
+	}	
+	
+	private void validatePrice(int preis) throws PreisException {
+		if (preis < 0 || preis > 1_000_000) {
+			throw new PreisException(String.valueOf(preis));
+		}			
+	}
+	
+	private void validateColor(AutoColor color, AutoColor[] validColors) throws ColorException {
+		boolean farbeGefunden = false;
+		
+		for (AutoColor entry : validColors) { 
+			if (entry == color) {
+				farbeGefunden = true;
 			}  
 		}
 		
-		if (this.color == null) {
+		if (!farbeGefunden) {
 			throw new ColorException(validColors, color);
 		}
-		
-		this.typ = typ;	
-	}	
+	}
 	
 	public int getPreis() {
 		return preis;
@@ -70,5 +76,6 @@ public abstract class Auto {
 	public void fahren() {
 		System.out.println("Fahre Auto ...");
 	}	
-
+	
+	
 }

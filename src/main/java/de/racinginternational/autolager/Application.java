@@ -20,6 +20,7 @@ public class Application {
 		}
 		
 	}
+	
 	public void mainApplication() throws Exception {
 
 		BMW bmwSmialkowski = new BMW(10_000, AutoColor.SILVER, AutoType.CABRIO);
